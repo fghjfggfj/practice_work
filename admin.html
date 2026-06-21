@@ -1,11 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Панель администратора — Корочки.есть</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text">Корочки<span class="logo-accent">.есть</span></span>
+            </a>
+            <nav class="header__nav">
+                <span class="header__user" id="headerUser"></span>
+                <button class="btn btn--ghost btn--sm" id="logoutBtn">Выйти</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Панель администратора</h1>
+                <span class="badge badge--info" id="totalCount">Загрузка...</span>
+            </div>
+
+            <!-- Фильтры -->
+            <div class="filters card">
+                <div class="filters__row">
+                    <div class="form-group form-group--inline">
+                        <label class="form-label">Фильтр по статусу</label>
+                        <select id="filterStatus" class="form-input form-select form-select--sm">
+                            <option value="">Все заявки</option>
+                            <option value="Новая">Новая</option>
+                            <option value="Идет обучение">Идет обучение</option>
+                            <option value="Обучение завершено">Обучение завершено</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group--inline">
+                        <label class="form-label">Поиск по имени / логину</label>
+                        <input type="text" id="filterSearch" class="form-input form-input--sm" placeholder="Введите имя или логин...">
+                    </div>
+                </div>
+            </div>
+
+            <div id="loadingState" class="loading-state">
+                <div class="spinner"></div>
+                <p>Загрузка заявок...</p>
+            </div>
+
+            <div id="emptyState" class="empty-state" style="display:none;">
+                <h2>Заявок не найдено</h2>
+                <p>Попробуйте изменить фильтры</p>
+            </div>
+
+            <!-- Таблица заявок -->
+            <div id="tableWrapper" class="table-wrapper" style="display:none;">
+                <table class="table" id="applicationsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Пользователь</th>
+                            <th>Курс</th>
+                            <th>Дата начала</th>
+                            <th>Оплата</th>
+                            <th>Статус</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicationsBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination" id="pagination" style="display:none;"></div>
+        </div>
+    </main>
+
+    <!-- Модальное окно смены статуса -->
+    <div class="modal-overlay" id="statusModal" style="display:none;">
+        <div class="modal">
+            <div class="modal__header">
+                <h3 class="modal__title">Изменить статус заявки</h3>
+                <button class="modal__close" id="closeStatusModal">x</button>
+            </div>
+            <div class="modal__body">
+                <p id="modalAppInfo" class="modal__info"></p>
+                <div class="form-group">
+                    <label class="form-label">Новый статус</label>
+                    <select id="newStatus" class="form-input form-select">
+                        <option value="Новая">Новая</option>
+                        <option value="Идет обучение">Идет обучение</option>
+                        <option value="Обучение завершено">Обучение завершено</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--outline" id="cancelStatus">Отмена</button>
+                <button class="btn btn--primary" id="confirmStatus">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Всплывающее уведомление -->
+    <div class="toast" id="toast" style="display:none;"></div>
+
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
 </body>
 </html>
