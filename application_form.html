@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подать заявку — Корочки.есть</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text">Корочки<span class="logo-accent">.есть</span></span>
+            </a>
+            <nav class="header__nav">
+                <span class="header__user" id="headerUser"></span>
+                <a href="applications.html" class="btn btn--outline btn--sm">Мои заявки</a>
+                <button class="btn btn--ghost btn--sm" id="logoutBtn">Выйти</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container container--sm">
+            <div class="page-header">
+                <h1 class="page-title">Новая заявка</h1>
+            </div>
+
+            <div class="card">
+                <form id="applicationForm" class="auth-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="course_name">Наименование курса *</label>
+                        <select id="course_name" name="course_name" class="form-input form-select">
+                            <option value="">— Выберите курс —</option>
+                            <option value="Основы алгоритмизации и программирования">Основы алгоритмизации и программирования</option>
+                            <option value="Основы веб-дизайна">Основы веб-дизайна</option>
+                            <option value="Основы проектирования баз данных">Основы проектирования баз данных</option>
+                        </select>
+                        <span class="form-error" id="courseError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="start_date">Желаемая дата начала обучения *</label>
+                        <input
+                            type="text"
+                            id="start_date"
+                            name="start_date"
+                            class="form-input"
+                            placeholder="ДД.ММ.ГГГГ"
+                            maxlength="10"
+                        >
+                        <span class="form-error" id="dateError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Способ оплаты *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="payment_method" value="cash">
+                                <span class="radio-custom"></span>
+                                Наличными
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="payment_method" value="transfer">
+                                <span class="radio-custom"></span>
+                                Переводом по номеру телефона
+                            </label>
+                        </div>
+                        <span class="form-error" id="paymentError"></span>
+                    </div>
+
+                    <div id="formAlert" class="alert" style="display:none;"></div>
+
+                    <div class="form-actions">
+                        <a href="applications.html" class="btn btn--outline">Отмена</a>
+                        <button type="submit" class="btn btn--primary" id="submitBtn">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/application_form.js"></script>
+</body>
+</html>
