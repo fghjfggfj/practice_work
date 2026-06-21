@@ -1,11 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Корочки.есть — Онлайн курсы ДПО</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="container">
+            <div class="header__logo">                <span class="logo-text">Корочки<span class="logo-accent">.есть</span></span>
+            </div>
+            <nav class="header__nav" id="headerNav">
+                <a href="login.html" class="btn btn--outline" id="navLogin">Войти</a>
+                <a href="register.html" class="btn btn--primary" id="navRegister">Регистрация</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero секция -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero__title">Получи корочку —<br>прокачай карьеру</h1>
+                <p class="hero__subtitle">Онлайн-курсы дополнительного профессионального образования.<br>Запишись сегодня — начни учиться завтра.</p>
+                <div class="hero__actions">
+                    <a href="register.html" class="btn btn--primary btn--lg">Начать обучение</a>
+                    <a href="login.html" class="btn btn--outline btn--lg">Уже есть аккаунт</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Курсы -->
+        <section class="courses">
+            <div class="container">
+                <h2 class="section-title">Популярные курсы</h2>
+                <div class="courses__grid">
+                    <div class="course-card">
+                        <h3 class="course-card__title">Основы алгоритмизации и программирования</h3>
+                        <p class="course-card__desc">Научитесь писать код с нуля. Алгоритмы, структуры данных, первые программы.</p>
+                        <a href="register.html" class="btn btn--primary btn--sm">Записаться</a>
+                    </div>
+                    <div class="course-card">
+                        <h3 class="course-card__title">Основы веб-дизайна</h3>
+                        <p class="course-card__desc">Создавайте красивые сайты. Figma, цветовые схемы, UX/UI принципы.</p>
+                        <a href="register.html" class="btn btn--primary btn--sm">Записаться</a>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-card__icon">️</div>
+                        <h3 class="course-card__title">Основы проектирования баз данных</h3>
+                        <p class="course-card__desc">SQL, проектирование схем, оптимизация запросов и работа с СУБД.</p>
+                        <a href="register.html" class="btn btn--primary btn--sm">Записаться</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Корочки.есть — Портал дополнительного профессионального образования</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Если пользователь уже залогинен — меняем шапку
+        checkAuthForIndex();
+    </script>
 </body>
 </html>
