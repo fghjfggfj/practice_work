@@ -1,11 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Вход — Корочки.есть</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-card__header">
+                <a href="index.html" class="logo-link">                    <span class="logo-text">Корочки<span class="logo-accent">.есть</span></span>
+                </a>
+                <h1 class="auth-card__title">Вход в аккаунт</h1>
+            </div>
+
+            <form id="loginForm" class="auth-form" novalidate>
+                <div class="form-group">
+                    <label class="form-label" for="login">Логин *</label>
+                    <input
+                        type="text"
+                        id="login"
+                        name="login"
+                        class="form-input"
+                        placeholder="Введите логин"
+                        autocomplete="username"
+                    >
+                    <span class="form-error" id="loginError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Пароль *</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-input"
+                        placeholder="Введите пароль"
+                        autocomplete="current-password"
+                    >
+                    <span class="form-error" id="passwordError"></span>
+                </div>
+
+                <div id="formAlert" class="alert" style="display:none;"></div>
+
+                <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+                    Войти
+                </button>
+            </form>
+
+            <div class="auth-card__footer">
+                <p>Ещё не зарегистрированы? <a href="register.html" class="link">Регистрация</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
