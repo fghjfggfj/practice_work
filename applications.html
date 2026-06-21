@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Мои заявки — Корочки.есть</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo-link">                <span class="logo-text">Корочки<span class="logo-accent">.есть</span></span>
+            </a>
+            <nav class="header__nav">
+                <span class="header__user" id="headerUser"></span>
+                <a href="applications.html" class="btn btn--outline btn--sm">Мои заявки</a>
+                <a href="application_form.html" class="btn btn--primary btn--sm">Подать заявку</a>
+                <button class="btn btn--ghost btn--sm" id="logoutBtn">Выйти</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Мои заявки</h1>
+                <a href="application_form.html" class="btn btn--primary">+ Новая заявка</a>
+            </div>
+
+            <div id="loadingState" class="loading-state">
+                <div class="spinner"></div>
+                <p>Загрузка заявок...</p>
+            </div>
+
+            <div id="emptyState" class="empty-state" style="display:none;">
+                <h2>Заявок пока нет</h2>
+                <p>Подайте первую заявку на обучение</p>
+                <a href="application_form.html" class="btn btn--primary">Подать заявку</a>
+            </div>
+
+            <div id="applicationsList" class="applications-list" style="display:none;"></div>
+        </div>
+    </main>
+
+    <!-- Модальное окно для отзыва -->
+    <div class="modal-overlay" id="reviewModal" style="display:none;">
+        <div class="modal">
+            <div class="modal__header">
+                <h3 class="modal__title">Оставить отзыв</h3>
+                <button class="modal__close" id="closeReviewModal"></button>
+            </div>
+            <div class="modal__body">
+                <textarea
+                    id="reviewText"
+                    class="form-textarea"
+                    placeholder="Расскажите о своём опыте обучения..."
+                    rows="5"
+                ></textarea>
+                <span class="form-error" id="reviewError"></span>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--outline" id="cancelReview">Отмена</button>
+                <button class="btn btn--primary" id="submitReview">Отправить отзыв</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/applications.js"></script>
 </body>
 </html>
